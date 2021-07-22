@@ -1,10 +1,11 @@
-package principal;
+package com.exemplo.principal;
 
-import entidades.CaixaEletronico;
+import com.exemplo.entidades.CaixaEletronico;
 
 public class Principal {
 
 	public static void main(String[] args) {
+		
 		CaixaEletronico caixaEletronico = new CaixaEletronico();
 		
 		/*

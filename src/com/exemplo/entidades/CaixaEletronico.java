@@ -1,4 +1,4 @@
-package entidades;
+package com.exemplo.entidades;
 
 public class CaixaEletronico {
 
