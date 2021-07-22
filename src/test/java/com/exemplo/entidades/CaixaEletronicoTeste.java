@@ -7,7 +7,7 @@ import org.junit.Test;
 public class CaixaEletronicoTeste {
 	
 	@Test
-	public void testeBasico() {
+	public void testName() throws Exception {
 		
 	}
 
