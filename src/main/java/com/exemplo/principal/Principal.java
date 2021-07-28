@@ -1,56 +1,53 @@
 package com.exemplo.principal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.exemplo.entidades.CaixaEletronico;
+import com.exemplo.entidades.Deposito;
+import com.exemplo.entidades.NotaQuantidade;
+import com.exemplo.entidades.Saque;
+import com.exemplo.entidades.enumerados.TipoNotaEnum;
+import com.exemplo.entidades.enumerados.TipoOperacaoEnum;
 
 public class Principal {
 
-	CaixaEletronico caixaEletronico = new CaixaEletronico();
-
 	public static void main(String[] args) {
 
-		/*
-		 * Deve ser possível realizar depósitos. 
-		 * Critérios de aceitação: 
-		 * 1 - O depósito deve ser feito informando uma quantidade de notas e o valor de cada nota(valores e quantidades maiores que 0). 
-		 * 2 - O caixa deve ter um limite de R$ 10.000,00 de saldo total. 
-		 * 3 - Caso o depósito a ser feito tem um valor que faça com que o limite seja excedido, não deve ser realizado.
-		 * Bonus 
-		 * 4 - Deve ser mantido um histórico de depositos feitos.
-		 * 
-		 */
+		CaixaEletronico caixaEletronico = new CaixaEletronico();
+		caixaEletronico.saldoTotal();
+		caixaEletronico.saldoDiferenciado();
 
-		/*
-		 * Deve ser possível realizar saques.
-		 * Critérios de aceitação: 
-		 * 1 - Um valor deve ser definido para o saque, maior que 0.
-		 * 2 - As notas deve ser consumidas das maiores para as menores.
-		 * 3 - Se o saque for maior que o saldo total, não deve ser realizado.
-		 * 4 - Se o valor do saque não seja possível com as notas disponíveis, não deve ser realizado.
-		 * 		Ex. Saque de 15 com apenas uma nota de 20 no caixa
-		 * Bonus: 
-		 * 5 - Deve ser mantido um histórico de saques feitos.
-		 */
+		List<NotaQuantidade> notaQuantidades = new ArrayList<>();
 
-		/*
-		 * Deve ser possível consultar o saldo total do caixa eletônico.
-		 * Critérios de aceitação:
-		 * 1 - O saldo total deve ser exibido de duas formas: 
-		 * 		a - Em valor total. 
-		 * 				Ex. Saldo total de R$ 200,00.
-		 *		b - Diferênciado por notas 
-		 *				Ex. Saldo de Notas: 
-		 *					R$ 2,00 - 1 
-		 *					R$ 5,00 - 5 
-		 * Bonus: 
-		 * 2 - Deve ser mantido um histórico de saldo.
-		 */
+//		notaQuantidades.add(new NotaQuantidade(TipoNotaEnum.CINCO, 2));
+//		Deposito deposito1 = new Deposito(notaQuantidades);
+//		caixaEletronico.depositar(deposito1);
+//
+//		caixaEletronico.saldoTotal();
+//		caixaEletronico.saldoDiferenciado();
+
+		notaQuantidades.add(new NotaQuantidade(TipoNotaEnum.DOIS, 50));
+		notaQuantidades.add(new NotaQuantidade(TipoNotaEnum.CINCO, 100));
+		notaQuantidades.add(new NotaQuantidade(TipoNotaEnum.DEZ, 200));
+		notaQuantidades.add(new NotaQuantidade(TipoNotaEnum.CINQUENTA, 20));
+		notaQuantidades.add(new NotaQuantidade(TipoNotaEnum.CEM, 10));
 		
-		/*
-		 * Bonus
-		 * Deve ser possível exibir o histórico das transações.
-		 * Critérios de aceitação:
-		 * 1 - O histórico completo deve ser exibido
-		 * 2 - O histórico pode ser filtrado, para mostrar apenas depósito, saques, saldo.
-		 */
+		Deposito deposito2 = new Deposito(notaQuantidades);
+		caixaEletronico.depositar(deposito2);
+		
+		caixaEletronico.saldoTotal();
+		caixaEletronico.saldoDiferenciado();
+
+		Saque saque = new Saque(10);
+		caixaEletronico.sacar(saque);
+
+		caixaEletronico.saldoTotal();
+		caixaEletronico.saldoDiferenciado();
+		
+		caixaEletronico.historico();
+		caixaEletronico.historico(TipoOperacaoEnum.SAQUE);
+		caixaEletronico.historico(TipoOperacaoEnum.DEPOSITO);
+
 	}
 }
