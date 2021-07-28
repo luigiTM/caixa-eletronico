@@ -20,12 +20,12 @@ public class Principal {
 
 		List<NotaQuantidade> notaQuantidades = new ArrayList<>();
 
-//		notaQuantidades.add(new NotaQuantidade(TipoNotaEnum.CINCO, 2));
-//		Deposito deposito1 = new Deposito(notaQuantidades);
-//		caixaEletronico.depositar(deposito1);
-//
-//		caixaEletronico.saldoTotal();
-//		caixaEletronico.saldoDiferenciado();
+		notaQuantidades.add(new NotaQuantidade(TipoNotaEnum.CINCO, 2));
+		Deposito deposito1 = new Deposito(notaQuantidades);
+		caixaEletronico.depositar(deposito1);
+
+		caixaEletronico.saldoTotal();
+		caixaEletronico.saldoDiferenciado();
 
 		notaQuantidades.add(new NotaQuantidade(TipoNotaEnum.DOIS, 50));
 		notaQuantidades.add(new NotaQuantidade(TipoNotaEnum.CINCO, 100));
